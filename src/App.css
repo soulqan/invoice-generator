@@ -1,0 +1,214 @@
+/* src/App.css */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+.App {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* --- FORM STYLING (Kiri) --- */
+.form-container {
+  width: 450px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-container label {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.form-container input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-container button {
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+.form-container button:hover {
+  background-color: #0056b3;
+}
+
+.item-input {
+  display: flex;
+  gap: 10px;
+}
+
+.item-input input:first-child { flex: 3; }
+.item-input input:last-child { flex: 2; }
+
+.form-divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 15px 0;
+}
+
+
+/* --- INVOICE PREVIEW STYLING (Kanan) --- */
+.preview-container {
+  width: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+.invoice-preview {
+  background: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  width: 210mm;
+  min-height: 297mm;
+  padding: 0; /* Remove padding to allow header to be full-width */
+  margin: auto;
+  transform-origin: top center;
+  transform: scale(0.85);
+  display: flex;
+  flex-direction: column;
+}
+
+.invoice-content {
+  padding: 30px;
+}
+
+/* Header with Image */
+.invoice-header-image {
+  width: 100%;
+  height: 180px;
+  /* PASTIKAN 'header-invoice.jpg' ADALAH NAMA FILE GAMBAR ANDA DI FOLDER PUBLIC */
+  background-image: url('/img/image.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Bill To & Invoice Meta Section */
+.invoice-meta-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.bill-to h2, .invoice-meta h2 {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 5px;
+}
+
+.invoice-meta {
+  text-align: right;
+}
+
+/* Item Table */
+.item-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.item-table th, .item-table td {
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.item-table th {
+  font-size: 0.9em;
+  color: #555;
+  text-transform: uppercase;
+}
+.item-table td.amount {
+  text-align: right;
+}
+.item-table th.amount-header {
+  text-align: right;
+}
+
+/* Totals Table Section */
+.totals-section {
+  display: flex;
+  justify-content: flex-end; /* Align table to the right */
+  margin-top: 20px;
+}
+
+.totals-table {
+  width: 50%; /* Table takes up half the width */
+}
+
+.totals-table td {
+  padding: 8px;
+}
+
+.totals-table .label {
+  font-weight: bold;
+  color: #444;
+}
+
+.totals-table .amount {
+  text-align: right;
+}
+
+.totals-table .total-cost .label,
+.totals-table .total-cost .amount {
+  font-size: 1.2em;
+  font-weight: bold;
+  border-top: 2px solid #333;
+  padding-top: 10px;
+}
+
+/* Footer */
+.invoice-footer {
+  margin-top: auto; /* Push footer to the bottom */
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #eee;
+  font-size: 0.9em;
+  color: #777;
+}
+
+.invoice-footer p {
+  margin: 5px 0;
+}
+
+.thank-you {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20px;
+}
