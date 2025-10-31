@@ -143,26 +143,28 @@ function App() {
 
   const handleGeneratePdf = () => {
     const input = document.getElementById('invoice-preview');
-    html2canvas(input, { scale: 3, useCORS: true })
+    html2canvas(input, { scale: 2.5, useCORS: true })
       .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
+        const imgData = canvas.toDataURL('image/jpeg', 0.9); // Tambahkan tipe jpeg
         const pdf = new jsPDF('p', 'mm', 'a4');
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        
+        // Ubah 'PNG' menjadi 'JPEG' untuk kompresi yang lebih baik
+        pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight); // <-- UBAH DI SINI
         pdf.save(`invoice-${invoiceData.invoiceNumber}.pdf`);
 
-       // 🔧 FIX: penanganan nomor invoice lebih aman
+        // ... sisa kode // 🔧 FIX: penanganan nomor invoice lebih aman
       const num = Number(invoiceData.invoiceNumber);
       if (!isNaN(num) && num > 0) {
         setInvoiceCounter(num + 1);
       } else {
         setInvoiceCounter(prev => (isNaN(prev) ? 1 : prev + 1));
       }
-    });
-  };
 
+      });
+  };
+      
   return (
     <div className="App">
       <div className="form-container">
